@@ -15,4 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::any('/user','UserController@index')->name('index');
+
+Route::group(['prefix' => 'user'], function () {
+    Route::any('index','UserController@index')->name('index');
+	Route::any('create','UserController@create')->name('create');
+	Route::any('store','UserController@store')->name('store');
+	Route::any('delete/{id}','UserController@delete')->name('delete');
+});
