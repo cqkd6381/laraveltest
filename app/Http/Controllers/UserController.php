@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 class UserController extends Controller
 {
     //
+
     public function index()
     {
 
@@ -28,7 +29,7 @@ class UserController extends Controller
             'email'=>$request->input('email'),
             'password'=>$request->input('password'),
         ]);
-    	var_dump($res);
+    	return redirect()->route('index');
 
     }
 
@@ -41,5 +42,10 @@ class UserController extends Controller
     {
 //        dd($id);
         DB::table('users')->where('id',$id)->delete();
+    }
+
+    public function test($id)
+    {
+        return $id;
     }
 }
