@@ -24,8 +24,8 @@ Route::group(['prefix' => 'user'], function () {
 });
 
 Route::get('api/users/{user}', function (App\User $user) {
-//    return $user->email;
-    dd($user);
+    return $user->email;
+//    dd($user);
 });
 Route::any('test/{id}',function($id){
     header('Access-Control-Allow-Origin: *');
